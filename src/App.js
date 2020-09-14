@@ -6,19 +6,18 @@ import './App.css';
 class App extends Component {
 
   handleOnClickItems() {
-    this.props.store.dispatch({
+    this.props.dispatch({
       type: 'GET_COUNT_OF_ITEMS',
     });
   }
 
   handleOnClickUsers() {
-    this.props.store.dispatch({
+    this.props.dispatch({
       type: 'GET_COUNT_OF_USERS',
     });
   }
 
   render() {
-    // debugger;
     return (
       <div className="App">
           <button onClick={() => this.handleOnClickItems()}>
@@ -27,15 +26,15 @@ class App extends Component {
           <button onClick={() => this.handleOnClickUsers()}>
             Click to change user count
           </button>
-          <p>{this.props.items.length}</p>
+          <p>ITEMS: {this.props.items.length}</p>
+          <p>USERS: {this.props.users.length}</p>
       </div>
     );
   }
 }
 
 const mapStateToProps = (state) => {
-  debugger;
-  return { items: state.items }
+  return { items: state.items, users: state.users }
 }
 
 export default connect(mapStateToProps)(App);
