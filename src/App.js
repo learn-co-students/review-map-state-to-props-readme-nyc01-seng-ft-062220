@@ -6,13 +6,13 @@ import './App.css';
 class App extends Component {
 
   handleOnClickItems() {
-    this.props.store.dispatch({
+    this.props.dispatch({
       type: 'GET_COUNT_OF_ITEMS',
     });
   }
 
   handleOnClickUsers() {
-    this.props.store.dispatch({
+    this.props.dispatch({
       type: 'GET_COUNT_OF_USERS',
     });
   }
@@ -33,9 +33,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const vanilla = (milkshake) => {
   debugger;
-  return { items: state.items }
+  return { items: milkshake.items }
 }
-
-export default connect(mapStateToProps)(App);
+ 
+export default connect(vanilla)(App);
